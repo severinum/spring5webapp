@@ -28,7 +28,7 @@ public class BootstrapData implements CommandLineRunner {
         System.out.println("Started bootstrap ...");
 
         Publisher publisher = new Publisher();
-        publisher.setName("Vrox Publishing");
+        publisher.setName("Wrox Publishing");
         publisher.setCity("Los Angeles");
         publisher.setState("CA");
         publisher.setAddressLine1("90210 Beverly Hills");
@@ -70,10 +70,19 @@ public class BootstrapData implements CommandLineRunner {
         bookRepository.save(noEJB);
 
 
-        // Book
+        // Book #3
+
+        Publisher publisher2 = new Publisher();
+        publisher2.setName("Springfield Publishing");
+        publisher2.setCity("New Yorn");
+        publisher2.setState("NY");
+        publisher2.setAddressLine1("1023 St.Mark Ave");
+        publisherRepository.save(publisher2);
+
         Book someBook = new Book("Somebook", "726352612");
         rod.getBooks().add(someBook);
         someBook.getAuthors().add(rod);
+        someBook.setPublisher(publisher2);
         bookRepository.save(someBook);
 
 
